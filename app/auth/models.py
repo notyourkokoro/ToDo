@@ -18,7 +18,7 @@ class User(SQLAlchemyBaseUserTable[int], Base):
     __tablename__ = 'users'
 
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
-    username: Mapped[str] = mapped_column(String(255), unique=True)
+    username: Mapped[str] = mapped_column(String(255))
 
     todos_rel: Mapped[list['ToDo']] = relationship(back_populates='user_rel', cascade='all, delete')
 
